@@ -30,7 +30,7 @@ RUN set -e ;\
     -X github.com/opencost/opencost/pkg/version.GitCommit=${commit}" \
     -o /go/bin/app
 
-FROM alpine:latest
+FROM alpine:3.18.3
 RUN apk add --update --no-cache ca-certificates
 COPY --from=build-env /go/bin/app /go/bin/app
 ADD ./configs/default.json /models/default.json
